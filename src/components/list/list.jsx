@@ -4,7 +4,7 @@ import Book from "../book/book.jsx";
 
 const List = ({list, deleteBook, changeBook}) => {
   return (
-    <ul>
+    <ul className="list list-book__list">
       {
         list.map((book, i) => {
           return (
@@ -13,6 +13,7 @@ const List = ({list, deleteBook, changeBook}) => {
               id={book.id}
               author={book.author}
               name={book.name}
+              img={book.img}
               deleteBook={deleteBook}
               changeBook={changeBook}
             />
