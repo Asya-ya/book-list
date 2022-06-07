@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-import Book from "../book/book.jsx";
+import Book from "../book/book";
 
 const List = ({list, deleteBook, changeBook}) => {
   return (
@@ -22,6 +23,12 @@ const List = ({list, deleteBook, changeBook}) => {
       }
     </ul>
   );
+};
+
+List.propTypes = {
+  list: PropTypes.array.isRequired,
+  deleteBook: PropTypes.func.isRequired,
+  changeBook: PropTypes.func.isRequired,
 };
 
 export default List;

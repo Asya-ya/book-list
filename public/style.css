@@ -139,6 +139,10 @@
 }
 
 .card__text {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 40px;
+
   font-family: 'Oswald', 'Arial', sans-serif;
   font-size: 18px;
 

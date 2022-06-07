@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Book = ({id, author, name, img, changeBook, deleteBook}) => {
   return (
@@ -21,6 +22,15 @@ const Book = ({id, author, name, img, changeBook, deleteBook}) => {
       </li>
     </React.Fragment>
   );
+};
+
+Book.propTypes = {
+  id: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  changeBook: PropTypes.func.isRequired,
+  deleteBook: PropTypes.func.isRequired,
 };
 
 export default Book;
