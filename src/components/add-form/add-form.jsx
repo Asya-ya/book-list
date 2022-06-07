@@ -40,7 +40,7 @@ const AddForm = ({addBook}) => {
   };
 
   return (
-    <form className="form list-book__form" onSubmit={handleSubmit}>
+    <form className="form list-book__form" autoСomplete="off" onSubmit={handleSubmit}>
       <p className="form__wrapper">
         <label className="form__label" htmlFor="author">Автор книги</label>
         <input
@@ -77,6 +77,7 @@ const AddForm = ({addBook}) => {
           id="file"
           name="file"
           type="file"
+          accept="image/png, image/jpeg, image/webp"
           onChange={fileChange}
         />
       </p>
