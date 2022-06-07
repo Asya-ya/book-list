@@ -17,7 +17,8 @@ const App = () => {
     const newBook = {
       id: Math.random().toString(36).substr(2, 9),
       author: book.author,
-      name: book.name
+      name: book.name,
+      img: book.img
     };
 
     if (newBook) {
@@ -31,18 +32,27 @@ const App = () => {
   };
 
   // Редактирование книги
-  const changeBook = (id) => {
-    const changeItem = list.find((book) => book.id === id);
-    const change = document.querySelector(`.${id}`);
+  const changeBook = (id, item) => {
+    const editBook = list.find((book) => book.id === id);
+    const changeItem = document.querySelector(`#${item}-${id}`);
 
-    if (change.hasAttribute(`readonly`)) {
-      change.removeAttribute(`readonly`);
-      change.focus();
+    if (changeItem.hasAttribute(`readonly`)) {
+      changeItem.removeAttribute(`readonly`);
+      changeItem.classList.add(`card__text--changed`);
+      changeItem.focus();
     } else {
-      change.setAttribute(`readonly`, `true`);
+      changeItem.setAttribute(`readonly`, `true`);
+      changeItem.classList.remove(`card__text--changed`);
     }
 
-    changeItem.author = change.value;
+    if (item === `author`) {
+      editBook.author = changeItem.value || `Автор`;
+      changeItem.value = editBook.author;
+    } else if (item === `name`) {
+      editBook.name = changeItem.value || `Название`;
+      changeItem.value = editBook.name;
+    }
+
     localStorage.setItem(`list`, JSON.stringify(list));
   };
 

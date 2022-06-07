@@ -1,0 +1,253 @@
+@font-face {
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Oswald Regular"),
+    url("./fonts/oswaldregular.woff2") format("woff2"),
+    url("./fonts/oswaldregular.woff") format("woff");
+}
+
+.page {
+  height: 100%;
+}
+
+.page__body {
+  margin: 0;
+
+  background-color: #eaeaea;
+  font-family: 'Oswald', 'Arial', sans-serif;
+}
+
+.page__wrapper {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  min-height: 100vh;
+
+  width: 300px;
+  margin: 0 auto;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+@media (min-width: 800px) {
+  .page__wrapper {
+    width: 768px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .page__wrapper {
+    width: 1220px;
+    padding-right: 100px;
+    padding-left: 100px;
+  }
+}
+
+.header__title {
+  text-align: center;
+}
+
+.form {
+  width: 300px;
+
+  font-size: 20px;
+}
+
+.form__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__label {
+  margin-right: 20px;
+}
+
+.form__input {
+  padding: 5px;
+
+  font-family: 'Oswald', 'Arial', sans-serif;
+  font-size: 16px;
+}
+
+.form__input:focus-visible {
+  outline: 1px auto orange;
+}
+
+.form__button {
+  padding: 7px;
+  width: 100%;
+  border-radius: 3px;
+
+  font-family: 'Oswald', 'Arial', sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+
+  background-color: orange;
+  cursor: pointer;
+}
+
+.form__button:hover,
+.form__button:focus {
+  opacity: 0.8;
+}
+
+.form__button:active {
+  opacity: 0.4;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  display: grid;
+  column-gap: 40px;
+  row-gap: 40px;
+}
+
+@media (min-width: 800px) {
+  .list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1440px) {
+  .list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+
+  background-color: #fffcfc;
+  box-shadow: 10px 5px 5px rgb(124, 123, 119);
+}
+
+.card__cover {
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.card__text {
+  font-family: 'Oswald', 'Arial', sans-serif;
+  font-size: 18px;
+
+  background-color: transparent;
+  border: none;
+  cursor: default;
+}
+
+.card__text:focus,
+.card__text:focus-visible {
+  outline: none;
+}
+
+.card__button--delete {
+  opacity: 0;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  left: auto;
+
+  width: 24px;
+  height: 24px;
+  border: none;
+
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.card:hover .card__button--delete {
+  opacity: 1;
+  transition: opacity 0.2s linear;
+}
+
+.card__button--delete::before,
+.card__button--delete::after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 0;
+
+  width: 24px;
+  height: 2px;
+
+  background-color: orange;
+}
+
+.card__button--delete::before {
+  transform: rotate(45deg);
+}
+
+.card__button--delete::after {
+  transform: rotate(-45deg);
+}
+
+.card__button--delete:hover::before,
+.card__button--delete:hover::after {
+  background-color: rgb(255, 185, 55)
+}
+
+.card__input {
+  position: relative;
+
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.card__button--change {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: auto;
+
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid transparent;
+
+  background-color: transparent;
+  background-image: url("img/pen.png");
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  cursor: pointer;
+}
+
+.card__text--changed + .card__button--change {
+  opacity: 1;
+  background-image: url("img/ok.png");
+  background-size: 18px 18px;
+}
+
+.card__button--change:hover {
+  border-bottom: 1px dotted #000000;
+}
+
+.card__input:hover > .card__button--change {
+  opacity: 1;
+  transition: opacity 0.1s linear;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 100px;
+  border-top: 1px solid #9a9696;
+}
